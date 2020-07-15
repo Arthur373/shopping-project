@@ -5,12 +5,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-public class HomeController {
+public class BagController {
 
-    @GetMapping(path = {"/","/home"})
-    public ModelAndView getHome(){
+    @GetMapping("/bag")
+    public ModelAndView getBag(){
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("user/home/home");
+        modelAndView.setViewName("user/bag/bag");
         return modelAndView;
     }
 }

@@ -5,12 +5,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-public class HomeController {
+public class ContactController {
 
-    @GetMapping(path = {"/","/home"})
-    public ModelAndView getHome(){
+    @GetMapping("/contact")
+    public ModelAndView getContact(){
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("user/home/home");
+        modelAndView.setViewName("user/contact/contact");
         return modelAndView;
     }
 }
