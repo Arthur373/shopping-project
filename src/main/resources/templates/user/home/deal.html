@@ -1,4 +1,5 @@
-<section class="related-product-area section_gap_bottom p-5"  th:fragment="deal">
+<section class="related-product-area section_gap_bottom p-5" xmlns:th="http://www.thymeleaf.org"
+         th:fragment="deal">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-6 text-center">
@@ -13,110 +14,14 @@
         <div class="row">
             <div class="col-lg-9">
                 <div class="row">
-                    <div class="col-lg-4 col-md-4 col-sm-6 mb-20">
+                    <div class="col-lg-4 col-md-4 col-sm-6 mb-20" th:each="deal : ${deals}">
                         <div class="single-related-product d-flex">
-                            <a href="#"><img th:src="@{/shop/img/r1.jpg}" alt=""></a>
+                            <a href="#"><img th:src="@{'/shop/img/' + ${deal.getImg()} + ''}" alt=""></a>
                             <div class="desc">
-                                <a href="#" class="title">Black lace Heels</a>
+                                <a href="#" class="title" th:text="${deal.getTitle()}"></a>
                                 <div class="price">
-                                    <h6>$189.00</h6>
-                                    <h6 class="l-through">$210.00</h6>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-4 col-sm-6 mb-20">
-                        <div class="single-related-product d-flex">
-                            <a href="#"><img th:src="@{/shop/img/r2.jpg}" alt=""></a>
-                            <div class="desc">
-                                <a href="#" class="title">Black lace Heels</a>
-                                <div class="price">
-                                    <h6>$189.00</h6>
-                                    <h6 class="l-through">$210.00</h6>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-4 col-sm-6 mb-20">
-                        <div class="single-related-product d-flex">
-                            <a href="#"><img th:src="@{/shop/img/r3.jpg}" alt=""></a>
-                            <div class="desc">
-                                <a href="#" class="title">Black lace Heels</a>
-                                <div class="price">
-                                    <h6>$189.00</h6>
-                                    <h6 class="l-through">$210.00</h6>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-4 col-sm-6 mb-20">
-                        <div class="single-related-product d-flex">
-                            <a href="#"><img th:src="@{/shop/img/r5.jpg}" alt=""></a>
-                            <div class="desc">
-                                <a href="#" class="title">Black lace Heels</a>
-                                <div class="price">
-                                    <h6>$189.00</h6>
-                                    <h6 class="l-through">$210.00</h6>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-4 col-sm-6 mb-20">
-                        <div class="single-related-product d-flex">
-                            <a href="#"><img th:src="@{/shop/img/r6.jpg}" alt=""></a>
-                            <div class="desc">
-                                <a href="#" class="title">Black lace Heels</a>
-                                <div class="price">
-                                    <h6>$189.00</h6>
-                                    <h6 class="l-through">$210.00</h6>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-4 col-sm-6 mb-20">
-                        <div class="single-related-product d-flex">
-                            <a href="#"><img th:src="@{/shop/img/r7.jpg}" alt=""></a>
-                            <div class="desc">
-                                <a href="#" class="title">Black lace Heels</a>
-                                <div class="price">
-                                    <h6>$189.00</h6>
-                                    <h6 class="l-through">$210.00</h6>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-4 col-sm-6">
-                        <div class="single-related-product d-flex">
-                            <a href="#"><img th:src="@{/shop/img/r9.jpg}" alt=""></a>
-                            <div class="desc">
-                                <a href="#" class="title">Black lace Heels</a>
-                                <div class="price">
-                                    <h6>$189.00</h6>
-                                    <h6 class="l-through">$210.00</h6>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-4 col-sm-6">
-                        <div class="single-related-product d-flex">
-                            <a href="#"><img th:src="@{/shop/img/r10.jpg}" alt=""></a>
-                            <div class="desc">
-                                <a href="#" class="title">Black lace Heels</a>
-                                <div class="price">
-                                    <h6>$189.00</h6>
-                                    <h6 class="l-through">$210.00</h6>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-4 col-sm-6">
-                        <div class="single-related-product d-flex">
-                            <a href="#"><img th:src="@{/shop/img/r11.jpg}" alt=""></a>
-                            <div class="desc">
-                                <a href="#" class="title">Black lace Heels</a>
-                                <div class="price">
-                                    <h6>$189.00</h6>
-                                    <h6 class="l-through">$210.00</h6>
+                                    <h6 th:text="'$' + ${deal.getPrice()}"></h6>
+                                    <h6 class="l-through" th:text="'$' + ${deal.getOldPrice()}"></h6>
                                 </div>
                             </div>
                         </div>
