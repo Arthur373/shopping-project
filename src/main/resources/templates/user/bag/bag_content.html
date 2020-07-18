@@ -1,19 +1,4 @@
-<th:block th:fragment="bag">
-<section class="banner-area organic-breadcrumb">
-    <div class="container">
-        <div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
-            <div class="col-first">
-                <h1>Shopping Cart</h1>
-                <nav class="d-flex align-items-center">
-                    <a th:href="@{/home}">Home<span class="lnr lnr-arrow-right"></span></a>
-                    <a th:href="@{/bag}">Cart</a>
-                </nav>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="cart_area">
+<section class="cart_area" xmlns:th="http://www.thymeleaf.org" th:fragment="bag">
     <div class="container">
         <div class="cart_inner">
             <div class="table-responsive">
@@ -200,4 +185,3 @@
         </div>
     </div>
 </section>
-</th:block>
