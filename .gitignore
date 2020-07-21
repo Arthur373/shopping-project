@@ -2,6 +2,7 @@ HELP.md
 mvnw.cmd
 mvnw
 .mvn
+questions.txt
 target/
 #!.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/

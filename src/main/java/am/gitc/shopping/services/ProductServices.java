@@ -12,7 +12,7 @@ public interface ProductServices {
 
     List<ProductEntity> getAllProduct();
 
-    Page<ProductEntity> findByTitle(String title, Pageable pageable);
+    ProductEntity getProductById(int id);
 
     Page<ProductEntity> getAll(Pageable pageable);
 

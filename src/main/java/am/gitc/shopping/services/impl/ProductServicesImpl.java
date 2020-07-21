@@ -24,9 +24,10 @@ public class ProductServicesImpl implements ProductServices {
     }
 
     @Override
-    public Page<ProductEntity> findByTitle(String title, Pageable pageable) {
-        return this.repository.findByTitle(title,pageable);
+    public ProductEntity getProductById(int id) {
+        return repository.findProductById(id);
     }
+
 
     @Override
     public Page<ProductEntity> getAll(Pageable pageable) {

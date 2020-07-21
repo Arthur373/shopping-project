@@ -1,5 +1,6 @@
 package am.gitc.shopping.entity;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.sun.istack.NotNull;
 import lombok.Builder;
 import lombok.Data;
@@ -9,6 +10,8 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 import java.sql.Date;
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
 @Entity(name = "products")
@@ -36,5 +39,11 @@ public class ProductEntity {
     @UpdateTimestamp
     @Column(name = "updated_at")
     private Date updatedAt;
+
+    private String images;
+
+    public String[] getImages() {
+        return images.split(",");
+    }
 
 }

@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface ProductRepository extends JpaRepository<ProductEntity, Integer> {
 
-    Page<ProductEntity> findByTitle(String title, Pageable pageable);
+    ProductEntity findProductById(int id);
 
     Page<ProductEntity> findAll(Pageable pageable);
 }
