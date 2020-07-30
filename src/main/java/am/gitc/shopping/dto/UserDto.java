@@ -1,9 +1,11 @@
 package am.gitc.shopping.dto;
 
+import am.gitc.shopping.validator.annotations.ValidPassword;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.validation.constraints.Email;
+import javax.annotation.Nullable;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
@@ -12,16 +14,14 @@ import javax.validation.constraints.NotNull;
 public class UserDto {
 
     @NotNull
+    @NotBlank
     private String name;
 
-    @Email
-    private String email;
+    //    @ValidPassword
+    private String password;
 
-    @NotNull
-    private String subject;
+    @JsonIgnore
+    private String confirm;
 
-    @NotNull
-    @NotBlank
-    private String message;
 
 }

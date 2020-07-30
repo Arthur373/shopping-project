@@ -67,6 +67,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers("/").permitAll()
                 .antMatchers("/home").permitAll()
                 .antMatchers("/shop/**").permitAll()
+                .antMatchers("/shopCategory").permitAll()
                 .antMatchers("/blog").permitAll()
                 .antMatchers("/contact").permitAll()
                 .antMatchers("/bag").permitAll()
@@ -93,7 +94,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                         if (isAdmin) {
                             redirectStrategy.sendRedirect(httpServletRequest, httpServletResponse, "/admin/home");
                         } else {
-                            redirectStrategy.sendRedirect(httpServletRequest, httpServletResponse, "/home");
+                            redirectStrategy.sendRedirect(httpServletRequest, httpServletResponse, "/my-profile");
                         }
                     }
                 })

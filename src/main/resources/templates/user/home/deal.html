@@ -16,9 +16,9 @@
                 <div class="row">
                     <div class="col-lg-4 col-md-4 col-sm-6 mb-20" th:each="deal : ${deals}">
                         <div class="single-related-product d-flex">
-                            <a href="#"><img th:src="@{'/shop/img/' + ${deal.getImg()} + ''}" alt=""></a>
+                            <img th:src="@{'/shop/img/' + ${deal.getImg()} + ''}" alt="">
                             <div class="desc">
-                                <a href="#" class="title" th:text="${deal.getTitle()}"></a>
+                                <a style="cursor: pointer;" class="title" th:text="${deal.getTitle()}"></a>
                                 <div class="price">
                                     <h6 th:text="'$' + ${deal.getPrice()}"></h6>
                                     <h6 class="l-through" th:text="'$' + ${deal.getOldPrice()}"></h6>

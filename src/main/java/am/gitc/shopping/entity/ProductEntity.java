@@ -1,16 +1,11 @@
 package am.gitc.shopping.entity;
 
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.sun.istack.NotNull;
-import lombok.Builder;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 import java.sql.Date;
-import java.util.ArrayList;
 import java.util.List;
 
 @Data
@@ -27,10 +22,10 @@ public class ProductEntity {
 
     private String text;
 
-    private int price;
+    private double price;
 
     @Column(name = "old_price")
-    private int oldPrice;
+    private double oldPrice;
 
     @CreationTimestamp
     @Column(name = "created_at")
@@ -41,6 +36,9 @@ public class ProductEntity {
     private Date updatedAt;
 
     private String images;
+
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private List<CategoryEntity> categories;
 
     public String[] getImages() {
         return images.split(",");

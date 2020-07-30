@@ -1,31 +1,25 @@
 package am.gitc.shopping.entity;
 
-import com.sun.istack.NotNull;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
+import org.springframework.data.domain.Page;
 
 import javax.persistence.*;
 import java.sql.Date;
+import java.util.List;
 
 @Data
-@NoArgsConstructor
-@Entity(name = "deals")
-public class DealEntity {
+@Entity(name = "categories")
+public class CategoryEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    private String img;
+    private String name;
 
-    private String title;
-
-    private double price;
-
-    @Column(name = "old_price")
-    private double oldPrice;
+    private String slug;
 
     @CreationTimestamp
     @Column(name = "created_at")
@@ -34,4 +28,10 @@ public class DealEntity {
     @UpdateTimestamp
     @Column(name = "updated_at")
     private Date updatedAt;
+
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinTable(name = "product_category",
+            joinColumns = @JoinColumn(name = "category_id"),
+            inverseJoinColumns = @JoinColumn(name = "product_id"))
+    private List<ProductEntity> products;
 }

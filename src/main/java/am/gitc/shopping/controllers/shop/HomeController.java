@@ -1,4 +1,4 @@
-package am.gitc.shopping.controllers;
+package am.gitc.shopping.controllers.shop;
 
 import am.gitc.shopping.entity.BannerEntity;
 import am.gitc.shopping.entity.DealEntity;
@@ -12,8 +12,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.awt.*;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 public class HomeController {
@@ -43,8 +46,8 @@ public class HomeController {
 
 
         //products
-        modelAndView.addObject("products", products.subList(0,8))
-                .addObject("coming_products", products.subList(0,8))
+        modelAndView.addObject("products", products.subList(0, 8))
+                .addObject("coming_products", products.subList(0, 8))
                 .setViewName("user/home/product");
         //deals
         modelAndView.addObject("deals", deals).setViewName("user/home/deal");
@@ -56,4 +59,6 @@ public class HomeController {
         modelAndView.setViewName("user/home/home");
         return modelAndView;
     }
+
+
 }

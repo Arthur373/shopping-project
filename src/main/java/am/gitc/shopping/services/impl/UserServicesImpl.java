@@ -40,4 +40,8 @@ public class UserServicesImpl implements UserServices {
         }
         this.userRepository.save(user);
     }
+
+    public void update(UserEntity user) {
+        this.userRepository.save(user);
+    }
 }

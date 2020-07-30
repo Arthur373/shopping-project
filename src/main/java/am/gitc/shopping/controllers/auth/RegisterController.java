@@ -42,6 +42,7 @@ public class RegisterController {
     @PostMapping("/register")
     public ModelAndView createNewUser(@Valid UserEntity userEntity, BindingResult bindingResult) {
         ModelAndView modelAndView = new ModelAndView();
+        List<MenuEntity> menus = this.menuServices.getAllMenu();
         if (!bindingResult.hasErrors()) {
             UserEntity userExists = this.userServices.getUserByEmail(userEntity.getEmail());
             if (userExists != null) {
@@ -57,6 +58,7 @@ public class RegisterController {
                 }
             }
         }
+        modelAndView.addObject("menus", menus).setViewName("user/home/navigation");
         modelAndView.setViewName("auth/register");
         return modelAndView;
     }

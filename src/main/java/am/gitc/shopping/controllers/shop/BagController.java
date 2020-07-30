@@ -1,4 +1,4 @@
-package am.gitc.shopping.controllers;
+package am.gitc.shopping.controllers.shop;
 
 import am.gitc.shopping.entity.MenuEntity;
 import am.gitc.shopping.services.MenuServices;

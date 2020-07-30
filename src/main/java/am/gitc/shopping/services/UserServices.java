@@ -9,4 +9,6 @@ public interface UserServices {
     UserEntity getUserByEmail(String email);
 
     void saveUser(UserEntity user);
+
+    void update(UserEntity user);
 }

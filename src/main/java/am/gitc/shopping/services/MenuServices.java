@@ -8,7 +8,7 @@ import java.util.List;
 @Service
 public interface MenuServices {
 
-    MenuEntity getMenuByName(String name);
+    List<MenuEntity> getMenuByParentId(int parentId);
 
     List<MenuEntity> getAllMenu();
 

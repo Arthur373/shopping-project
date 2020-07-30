@@ -1,10 +1,12 @@
 package am.gitc.shopping.services.impl;
 
+import am.gitc.shopping.entity.CategoryEntity;
 import am.gitc.shopping.entity.ProductEntity;
 import am.gitc.shopping.repository.ProductRepository;
 import am.gitc.shopping.services.ProductServices;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -34,5 +36,9 @@ public class ProductServicesImpl implements ProductServices {
         return this.repository.findAll(pageable);
     }
 
+    @Override
+    public Page<ProductEntity> getProductBySlug(String slug, Pageable pageable) {
+        return this.repository.findProductBySlug(slug,pageable);
+    }
 
 }

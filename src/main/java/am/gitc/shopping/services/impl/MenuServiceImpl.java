@@ -6,6 +6,7 @@ import am.gitc.shopping.services.MenuServices;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class MenuServiceImpl implements MenuServices {
@@ -16,9 +17,10 @@ public class MenuServiceImpl implements MenuServices {
         this.repository = repository;
     }
 
+
     @Override
-    public MenuEntity getMenuByName(String name) {
-        return repository.findByName(name);
+    public List<MenuEntity> getMenuByParentId(int parentId) {
+        return this.repository.findByParentId(parentId);
     }
 
     @Override
