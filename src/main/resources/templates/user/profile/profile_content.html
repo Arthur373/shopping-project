@@ -15,6 +15,7 @@
             <div>
                 <form th:action="@{/my-profile}" method="POST" th:object="${user}" >
                     <input type="hidden" name="_method" value="patch"/>
+                    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
                     <div class="form-group">
                         <input id="name" type="text" name="name" th:field="*{name}" class="input_type" placeholder="Name" required>
                         <label th:if="${#fields.hasErrors('name')}" th:errors="*{name}" ></label>

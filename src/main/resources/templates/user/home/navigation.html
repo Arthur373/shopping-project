@@ -1,9 +1,10 @@
-<header class="header_area sticky-header" xmlns:th="http://www.thymeleaf.org" th:fragment="navigation">
+<header class="header_area sticky-header" xmlns:th="http://www.thymeleaf.org" th:fragment="navigation"
+        xmlns:sec="http://www.w3.org/1999/xhtml">
     <div class="main_menu">
         <nav class="navbar navbar-expand-lg navbar-light main_box">
             <div class="container">
                 <!-- Brand and toggle get grouped for better mobile display -->
-                <a class="navbar-brand logo_h" th:href="@{/home}"><img th:src="@{shop/img/logo.png}" alt=""></a>
+                <a class="navbar-brand logo_h" th:href="@{/home}"><img th:src="@{/shop/img/logo.png}" alt=""></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
                         data-target="#navbarSupportedContent"
                         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -15,21 +16,26 @@
                 <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
                     <ul class="nav navbar-nav menu_nav ml-auto">
                         <li class="nav-item submenu dropdown" th:each="menu : ${menus}"
-                        th:classappend="${('/' + menu.getPath()) == #request.getRequestURI()} ? 'active' : ''">
+                            th:classappend="${('/' + menu.getPath()) == #request.getRequestURI()} ? 'active' : ''">
                             <a class="nav-link dropdown-toggle" th:href="@{'/' + ${menu.getPath()}}"
-                                role="button" aria-haspopup="true" aria-expanded="false"
+                               role="button" aria-haspopup="true" aria-expanded="false"
                                th:text="${menu.getName()}"></a>
                         </li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li class="nav-item" >
+                        <li class="nav-item">
                             <a th:href="@{/login}">
                                 <span class="ti-user" aria-hidden="true"></span>
                             </a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item" sec:authorize="#{isAuthenticated()}">
                             <a th:href="@{/logout}">
                                 <span class="ti-power-off"></span>
+                            </a>
+                        </li>
+                        <li class="nav-item" sec:authorize="#{isAuthenticated()}">
+                            <a th:href="@{/my-profile}">
+                                <span class="ti-user" aria-hidden="true"></span>
                             </a>
                         </li>
                         <li class="nav-item">

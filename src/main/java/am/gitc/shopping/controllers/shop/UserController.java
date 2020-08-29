@@ -40,8 +40,8 @@ public class UserController {
         List<MenuEntity> menus = this.menuServices.getAllMenu();
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         UserEntity user = userServices.getUserByEmail(auth.getName());
-        modelAndView.addObject("user", user).setViewName("user/profile/profile_content");
-        modelAndView.addObject("menus", menus).setViewName("user/home/navigation");
+        modelAndView.addObject("user", user);
+        modelAndView.addObject("menus", menus);
         modelAndView.setViewName("user/profile/profile");
         return modelAndView;
     }
@@ -53,10 +53,11 @@ public class UserController {
         List<MenuEntity> menus = this.menuServices.getAllMenu();
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         UserEntity user = userServices.getUserByEmail(auth.getName());
-        if (!bindingResult.hasErrors()) {
-            if (userDto.getPassword() != null && !userDto.getPassword().isEmpty()) {
+
+        if (userDto.getPassword() != null && !userDto.getPassword().isEmpty()) {
+            if (!bindingResult.hasErrors()) {
                 if (!userDto.getPassword().equals(userDto.getConfirm())) {
-                    bindingResult.rejectValue("confirm", "error.users", "wrong confirm password.");
+                    bindingResult.rejectValue("confirm", "error.user", "wrong confirm password.");
                 } else {
                     user.setName(userDto.getName());
                     user.setPassword(passwordEncoder.encode(userDto.getPassword()));
@@ -64,11 +65,12 @@ public class UserController {
                     modelAndView.addObject("successMessage", "User has been updated successfully")
                             .setViewName("user/profile/profile_content");
                 }
-            } else {
-                user.setName(userDto.getName());
-                userServices.update(user);
             }
+        } else {
+            user.setName(userDto.getName());
+            userServices.update(user);
         }
+        modelAndView.addObject("user", user);
         modelAndView.addObject("menus", menus).setViewName("user/home/navigation");
         modelAndView.setViewName("user/profile/profile");
         return modelAndView;
