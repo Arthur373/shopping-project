@@ -84,7 +84,7 @@
                                 class="reduced items-count" type="button"><i class="lnr lnr-chevron-down"></i></button>
                     </div>
                     <div class="card_area d-flex align-items-center">
-                        <a class="primary-btn" th:href="${'/bag/' + product.getId()}">Add to Cart</a>
+                        <button class="primary-btn" th:value="${product.getId()}" id="AddCart">Add to Cart</button>
                     </div>
                 </div>
             </div>
@@ -120,5 +120,6 @@
 <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
 <script defer th:src="@{/shop/js/gmaps.min.js}"></script>
 <script defer th:src="@{/shop/js/main.js}"></script>
+<script defer th:src="@{/js/shopScript.js}"></script>
 </body>
 </html>

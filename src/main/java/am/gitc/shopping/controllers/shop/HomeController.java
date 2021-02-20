@@ -47,14 +47,13 @@ public class HomeController {
 
         //products
         modelAndView.addObject("products", products.subList(0, 8))
-                .addObject("coming_products", products.subList(0, 8))
-                .setViewName("user/home/product");
+                .addObject("coming_products", products.subList(0, 8));
         //deals
-        modelAndView.addObject("deals", deals).setViewName("user/home/deal");
+        modelAndView.addObject("deals", deals);
         //banner
-        modelAndView.addObject("banners", banners).setViewName("user/home/banner");
+        modelAndView.addObject("banners", banners);
         //menu
-        modelAndView.addObject("menus", menus).setViewName("user/home/navigation");
+        modelAndView.addObject("menus", menus);
 
         modelAndView.setViewName("user/home/home");
         return modelAndView;

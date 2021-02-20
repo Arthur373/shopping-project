@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.ServletContext;
 import java.util.List;
 
 @Controller
@@ -21,7 +22,7 @@ public class LoginController {
     public ModelAndView login(){
         ModelAndView modelAndView = new ModelAndView();
         List<MenuEntity> menus = this.menuServices.getAllMenu();
-        modelAndView.addObject("menus", menus).setViewName("user/home/navigation");
+        modelAndView.addObject("menus", menus);
         modelAndView.setViewName("auth/login");
         return modelAndView;
     }

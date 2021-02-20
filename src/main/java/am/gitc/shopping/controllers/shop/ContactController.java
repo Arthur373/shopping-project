@@ -33,9 +33,8 @@ public class ContactController {
         List<MenuEntity> menus = this.menuServices.getAllMenu();
 
         //menus
-        modelAndView.addObject("menus", menus).setViewName("user/home/navigation");
-        modelAndView.addObject("mailDto",new MailDto())
-                .setViewName("user/contact/contact_content");
+        modelAndView.addObject("menus", menus);
+        modelAndView.addObject("mailDto",new MailDto());
 
         modelAndView.setViewName("user/contact/contact");
         return modelAndView;
@@ -52,10 +51,10 @@ public class ContactController {
                                 "wrong email");
             }else {
                 this.emailSender.sendSimpleMessage(mailDto);
-                modelAndView.addObject("success","Mail sending").setViewName("user/contact/contact_content");
+                modelAndView.addObject("success","Mail sending");
             }
         }
-        modelAndView.addObject("menus", menus).setViewName("user/home/navigation");
+        modelAndView.addObject("menus", menus);
         modelAndView.setViewName("user/contact/contact");
         return modelAndView;
     }

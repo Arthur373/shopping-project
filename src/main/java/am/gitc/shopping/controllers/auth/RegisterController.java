@@ -34,7 +34,7 @@ public class RegisterController {
         ModelAndView modelAndView = new ModelAndView();
         List<MenuEntity> menus = this.menuServices.getAllMenu();
         modelAndView.addObject("userEntity", new UserEntity());
-        modelAndView.addObject("menus", menus).setViewName("user/home/navigation");
+        modelAndView.addObject("menus", menus);
         modelAndView.setViewName("auth/register");
         return modelAndView;
     }
@@ -58,7 +58,7 @@ public class RegisterController {
                 }
             }
         }
-        modelAndView.addObject("menus", menus).setViewName("user/home/navigation");
+        modelAndView.addObject("menus", menus);
         modelAndView.setViewName("auth/register");
         return modelAndView;
     }

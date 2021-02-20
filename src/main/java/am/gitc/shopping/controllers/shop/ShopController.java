@@ -63,7 +63,6 @@ public class ShopController {
         } else {
             products = this.productServices.getAll(pageable);
         }
-
         /*** Sorting ***/
         String sort = request.getParameter("sort");
         if (sort != null && sort.equals("asc")) {
@@ -76,7 +75,6 @@ public class ShopController {
             pageable = PageRequest.of(page, size, Sort.unsorted());
             products = this.productServices.getAll(pageable);
         }
-
 //        int[] numbers = getPaginationFormat(products);
         int[] numbers = IntStream.range(1, products.getTotalPages()+1).toArray();
         /*** products and categories  ***/
@@ -87,10 +85,10 @@ public class ShopController {
                 .setViewName("user/shop/shop_contents");
 
         /*** deals ***/
-        modelAndView.addObject("deals", deals).setViewName("user/home/deal");
+        modelAndView.addObject("deals", deals);
 
         /*** menus ***/
-        modelAndView.addObject("menus", menus).setViewName("user/home/navigation");
+        modelAndView.addObject("menus", menus);
 
         modelAndView.setViewName("user/shop/shop");
         return modelAndView;
@@ -106,16 +104,13 @@ public class ShopController {
         List<DealEntity> deals = this.dealServices.getAllDeals();
 
 
-        modelAndView.addObject("menus", menus).setViewName("user/home/navigation");
+        modelAndView.addObject("menus", menus);
         modelAndView.addObject("product", product);
-        modelAndView.addObject("deals", deals).setViewName("user/home/deal");
+        modelAndView.addObject("deals", deals);
 
         modelAndView.setViewName("user/shop/single_shop_content");
         return modelAndView;
     }
-
-
-
 
 
 
